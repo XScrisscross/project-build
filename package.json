@@ -1,0 +1,45 @@
+{
+  "name": "micro-app",
+  "version": "0.1.0",
+  "private": true,
+  "description": "",
+  "author": {
+    "name": "XScrisscross",
+    "email": "xscrisscross@outlook.com"
+  },
+  "keywords": [
+    "vue",
+    "qiankun",
+    "react",
+    "electron"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "install": "npm-run-all --serial install:*",
+    "install:sub-react-template": "cd projects/sub-react-template && npm i",
+    "install:sub-vue-template": "cd projects/sub-vue-template && npm i",
+    "install:main": "cd projects/protal-subs && npm i",
+    "start": "npm-run-all --parallel start:*",
+    "start:sub-react-template": "cd projects/sub-react-template",
+    "start:sub-vue-template": "cd projects/sub-vue-template && npm start",
+    "start:main": "cd projects/protal-subs && npm start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "husky": "^6.0.0",
+    "npm-run-all": "^4.1.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+@import '~assets/css/book/book.scss';
+
+.book-wraper {
+  display: flex;
+  min-height: 100%;
+  width: 100%;
+  padding: 25px;
+  background-image: url('~assets/img/bg_body.gif');
+  background-size: auto;
+
+  .book-content-wraper {
+    flex: auto;
+    width: 100%;
+    min-height: 100%;
+    padding-bottom: 10px;
+    background-color: $main-color;
+  }
+}
