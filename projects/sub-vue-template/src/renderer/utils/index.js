@@ -5,7 +5,7 @@ const files = require.context('./', true, /^.*?(?<!index)\.js$/)
 const { utilsMountWindow, utilsMountVue } = envConfig
 
 if (utilsMountWindow) window.$utlis = {}
-if (utilsMountVue) Vue.$utlis = {}
+if (utilsMountVue) Vue.prototype.$utlis = {}
 
 const utils = files.keys().reduce((res, cur) => {
   const modules = files(cur)
@@ -13,7 +13,7 @@ const utils = files.keys().reduce((res, cur) => {
 
   const fns = fnkeys.reduce((fnres, key) => {
     if (utilsMountWindow) window.$utlis[key] = modules[key]
-    if (utilsMountVue) Vue.$utlis[key] = modules[key]
+    if (utilsMountVue) Vue.prototype.$utlis[key] = modules[key]
     return { ...fnres, [key]: modules[key] }
   }, {})
   return { ...res, ...fns }

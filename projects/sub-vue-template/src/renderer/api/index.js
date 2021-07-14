@@ -5,7 +5,7 @@ const files = require.context('./', true, /(^\.\/modules)([a-zA-Z/]+)\.js$/)
 const { apiMountWindow, apiMountVue } = envConfig
 
 if (apiMountWindow) window.$apis = {}
-if (apiMountVue) Vue.$apis = {}
+if (apiMountVue) Vue.prototype.$apis = {}
 
 const apis = files.keys().reduce((res, cur) => {
   const moduleKey = cur.match(/\.\/modules\/(\S*)\.js$/)[1]
@@ -14,7 +14,7 @@ const apis = files.keys().reduce((res, cur) => {
 
   const fns = fnkeys.reduce((fnres, key) => {
     if (apiMountWindow) window.$apis[moduleKey + '/' + key] = modules[key]
-    if (apiMountVue) Vue.$apis[moduleKey + '/' + key] = modules[key]
+    if (apiMountVue) Vue.prototype.$apis[moduleKey + '/' + key] = modules[key]
     return { ...fnres, [moduleKey + '/' + key]: modules[key] }
   }, {})
   return { ...res, ...fns }
@@ -28,6 +28,6 @@ const fetchApi = (key, params) => {
 }
 
 if (apiMountWindow) window.$fetchApi = fetchApi
-if (apiMountVue) Vue.$fetchApi = fetchApi
+if (apiMountVue) Vue.prototype.$fetchApi = fetchApi
 
 export { apis, fetchApi }
