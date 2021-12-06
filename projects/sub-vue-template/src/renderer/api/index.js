@@ -1,33 +1,34 @@
-import Vue from 'vue'
-import envConfig from '../config/envConfig'
+import Vue from 'vue';
+import envConfig from '../env-config.js';
 
-const files = require.context('./', true, /(^\.\/modules)([a-zA-Z/]+)\.js$/)
-const { apiMountWindow, apiMountVue } = envConfig
+const { apiMountWindow, apiMountVue } = envConfig;
+const files = require.context('./', true, /(^\.\/modules)([a-zA-Z/]+)\.js$/);
 
-if (apiMountWindow) window.$apis = {}
-if (apiMountVue) Vue.prototype.$apis = {}
+if (apiMountVue) Vue.prototype.$apis = {};
 
 const apis = files.keys().reduce((res, cur) => {
-  const moduleKey = cur.match(/\.\/modules\/(\S*)\.js$/)[1]
-  const modules = files(cur)
-  const fnkeys = Object.keys(modules)
+  const moduleKey = cur.match(/\.\/modules\/(\S*)\.js$/)[1];
+  const modules = files(cur);
+  const fnkeys = Object.keys(modules);
 
   const fns = fnkeys.reduce((fnres, key) => {
-    if (apiMountWindow) window.$apis[moduleKey + '/' + key] = modules[key]
-    if (apiMountVue) Vue.prototype.$apis[moduleKey + '/' + key] = modules[key]
-    return { ...fnres, [moduleKey + '/' + key]: modules[key] }
-  }, {})
-  return { ...res, ...fns }
-}, {})
+    if (apiMountWindow) window.$apis[moduleKey + '/' + key] = modules[key];
+    if (apiMountVue) Vue.prototype.$apis[moduleKey + '/' + key] = modules[key];
+    return { ...fnres, [moduleKey + '/' + key]: modules[key] };
+  }, {});
+  return { ...res, ...fns };
+}, {});
 
 const fetchApi = (key, params) => {
-  const keys = Object.keys(apis)
-  if (keys.indexOf(key) === -1) throw new Error('no such api!')
-  if (Object.prototype.toString.call(params) !== '[object Object]') throw new Error('prams should be object!')
-  return apis[key](params)
-}
+  const keys = Object.keys(apis);
+  if (keys.indexOf(key) === -1) throw new Error('no such api!');
+  if (Object.prototype.toString.call(params) !== '[object Object]') throw new Error('prams should be object!');
+  return apis[key](params);
+};
 
-if (apiMountWindow) window.$fetchApi = fetchApi
-if (apiMountVue) Vue.prototype.$fetchApi = fetchApi
+if (apiMountVue) Vue.prototype.$fetchApi = fetchApi;
 
-export { apis, fetchApi }
+const registerApi = function(Vue,){}
+
+// export { apis, fetchApi }
+export default  registerApi

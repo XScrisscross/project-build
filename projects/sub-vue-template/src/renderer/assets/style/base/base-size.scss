@@ -1,4 +1,3 @@
-// base-style
 .p5 {
   padding: 5px !important;
 }
@@ -189,32 +188,4 @@
 
 .w100 {
   width: 100%;
-}
-
-// base-layout
-* {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  width: 100%;
-  height: 100%;
-}
-
-// base-change
-.hidden {
-  display: none !important;
-}
-
-.show {
-  display: block !important;
-}
-
-.bold {
-  font-weight: 700 !important;
-}
-
-.cursor {
-  cursor: pointer;
 }

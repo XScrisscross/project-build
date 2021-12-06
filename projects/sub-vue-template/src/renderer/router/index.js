@@ -1,87 +1,104 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import BasicLayout from '../layout/BasicLayout.vue'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
 
-Vue.use(VueRouter)
 
-const basicFiles = require.context('./', true, /(^\.\/basicRoutes)([a-zA-Z/]+)\.js$/)
-const dynaFiles = require.context('./', true, /(^\.\/dynaRoutes)([a-zA-Z/]+)\.js$/)
+import './router-utils'
+// import BasicLayout from '../layout/BasicLayout.vue';
 
-const basicMdules = basicFiles.keys().reduce((res, cur) => {
-  const modules = basicFiles(cur).default
-  return [...res, ...modules]
-}, [])
+// const initRoutes = (function (Vue, VueRouter, routerConfig) {
+//   Vue.use(VueRouter);
 
-const dynaModules = dynaFiles.keys().reduce((res, cur) => {
-  const moduleKey = cur.match(/\.\/dynaRoutes\/(\S*)\.js$/)[1].toLowerCase()
-  const [routes, layoutComponnet] = dynaFiles(cur).default
-  const modules = {
-    path: '/' + moduleKey,
-    name: moduleKey,
-    component: layoutComponnet || BasicLayout,
-    children: routes,
-  }
-  return [...res, modules]
-}, [])
+//   let routes = [];
+//   let Layout = Layout;
+//   let basicModules = null;
+//   let mainModules = null;
+//   let dynaModules = null;
 
-const routes = [
-  // 二级静态路由
-  {
-    path: '/',
-    name: 'index',
-    component: BasicLayout,
-    redirect: '/home',
-    children: [
-      // static import
-    ].concat(basicMdules),
-  },
-  // 二级动态路由
-  ...[
-    // static import
-    ...dynaModules,
-  ],
-  // 基础路由
-  {
-    path: '/login',
-    name: 'login',
-    component: () => import('../views/Login.vue'),
-  },
-  {
-    path: '/error',
-    name: 'error',
-    component: () => import('../views/Error.vue'),
-  },
-]
+//   const initBasic = function () {
+//     const basicFiles = require.context('./', true, /(^\.\/basic-routes)([a-zA-Z/]+)\.js$/);
+//     const basicModules = basicFiles.keys().reduce((res, cur) => {
+//       const modules = basicFiles(cur).default;
+//       return [...res, ...modules];
+//     }, []);
+//     return basicModules;
+//   };
 
-// webapp or electron
-export const hashRouter = () => {
-  const router = new VueRouter({
-    routes,
-  })
+//   const initMain = function () {
+//     const mainFiles = require.context('./', true, /(^\.\/main-layout-outes)([a-zA-Z/]+)\.js$/);
+//     const mainModules = mainFiles.keys().reduce((res, cur) => {
+//       const modules = mainFiles(cur).default;
+//       return [...res, ...modules];
+//     }, []);
+//     return [
+//       {
+//         path: '/',
+//         name: 'index',
+//         component: Layout,
+//         redirect: '/home',
+//         children: [
+//           // static import
+//         ].concat(mainModules),
+//       },
+//     ];
+//   };
 
-  router.beforeEach((to, from, next) => {
-    next()
-  })
+//   const initDyna = function () {
+//     const dynaFiles = require.context('./', true, /(^\.\/dyna-layout-routes)([a-zA-Z/]+)\.js$/);
+//     const dynaModules = dynaFiles.keys().reduce((res, cur) => {
+//       const moduleKey = cur.match(/\.\/dyna-layout-routes\/(\S*)\.js$/)[1].toLowerCase();
+//       const [routes, layoutComponent] = dynaFiles(cur).default;
+//       const modules = {
+//         path: '/' + moduleKey,
+//         name: moduleKey,
+//         component: layoutComponent || Layout,
+//         children: routes,
+//       };
+//       return [...res, modules];
+//     }, []);
+//     return dynaModules;
+//   };
 
-  router.afterEach((to, from) => {})
+//   return function () {
+//     basicModules = initBasic.apply(this, arguments);
+//     mainModules = initMain.apply(this, arguments);
+//     dynaModules = initDyna.apply(this, arguments);
+//     return [...basicModules, ...mainModules, ...dynaModules];
+//   };
+// })(Vue, VueRouter, BasicLayout);
 
-  return router
-}
+// const createRouter = function () {};
 
-// inject micro-apps routes
-export const microRouter = () => {
-  const router = new VueRouter({
-    routes,
-    // baseURL根据主应用注册的子应用路由决定
-    base: window.__POWERED_BY_QIANKUN__ ? '/sub-vue-template' : '/',
-    mode: 'history',
-  })
+// // const routes =
 
-  router.beforeEach((to, from, next) => {
-    next()
-  })
+// // webapp or electron
+// const hashRouter = function () {
+//   const router = new VueRouter({
+//     routes,
+//   });
 
-  router.afterEach((to, from) => {})
+//   router.beforeEach((to, from, next) => {
+//     next();
+//   });
 
-  return router
-}
+//   router.afterEach((to, from) => {});
+
+//   return router;
+// };
+
+// // inject micro-apps routes
+// const microRouter = function () {
+//   const router = new VueRouter({
+//     routes,
+//     // baseURL根据主应用注册的子应用路由决定
+//     base: window.__POWERED_BY_QIANKUN__ ? '/sub-vue-template' : '/',
+//     mode: 'history',
+//   });
+
+//   router.beforeEach((to, from, next) => {
+//     next();
+//   });
+
+//   router.afterEach((to, from) => {});
+
+//   return router;
+// };

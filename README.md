@@ -1,19 +1,17 @@
-#### 介绍
+## 更新日志
 
-集成 vue，react 微应用，vue-electron，内置开发模板
+#### 2021-07-06
 
-#### 开发
+- 集成 vue，react 的微应用，使用阿里的 qiankun，实现简单的通信
 
-（1）micro 微应用启动：npm start
-（2）webapp 单独启动：npm start:xxx
-（3）electron 单独启动：npm run cd projects/sub-vue-template npm electron:server
+#### 2021-08-10
 
-#### 配置
+- 集成 vue-electron 应用，可根据不同配置开启 web 或客户端应用
 
-微应用配置，集成 qiankun，依照官网配置
+#### 2021-08-12
 
-#### 部署
+- vue 应用的基础封装，后续 react 及 vue 相关实践集中到此项目中
 
-（1）单独部署：单独部署打包
-（2）微应用：nginx 打包部署
-（3）electron：elecrton:build
+#### 2021-12-06
+
+- 不应做过多的动态扫描文件引入方式，部分多余动态引入重构成普通按需引入

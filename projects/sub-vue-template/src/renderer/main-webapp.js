@@ -3,7 +3,7 @@ import App from './App.vue'
 import { hashRouter } from './router'
 import store from './store'
 
-import './api/index'
+// import './api/index'
 import './utils/index'
 
 import 'amfe-flexible'
