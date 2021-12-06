@@ -1,4 +1,4 @@
-export default {
+export const config = {
   // utils是否挂载Window
   utilsMountWindow: false,
   // utils是否挂载Vue
@@ -9,4 +9,6 @@ export default {
   apiMountVue: true,
   // baseURL测试生产地址
   baseURL: process.env.NODE_ENV === 'production' ? 'http://127.0.0.1' : '/api',
+
+  envMode: process.env.VUE_APP_TEMPLATE_MODE,
 };

@@ -1,18 +1,18 @@
 export default [
   {
-    path: '/sbviewA',
+    path: '/sbviewC',
     component: () => import(/* webpackChunkName: "sectionB" */ '../../views/sectionB/ViewA.vue'),
-    name: 'sbviewA',
+    name: 'sbviewC',
     meta: {
-      title: '视图A',
+      title: '视图C',
     },
   },
   {
-    path: '/sbviewB',
+    path: '/sbviewD',
     component: () => import(/* webpackChunkName: "sectionB" */ '../../views/sectionB/ViewB.vue'),
-    name: 'sbviewB',
+    name: 'sbviewD',
     meta: {
-      title: '视图B',
+      title: '视图D',
     },
   },
 ]

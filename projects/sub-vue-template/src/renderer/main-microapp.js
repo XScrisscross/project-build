@@ -1,8 +1,8 @@
 import './public-path';
 import Vue from 'vue';
 import App from './App.vue';
-import './router';
-// import store from './store';
+import router from './router';
+import store from './store';
 
 // import './api/index'
 // import './utils/index';
@@ -13,14 +13,12 @@ import './assets/style/index.scss';
 Vue.config.productionTip = false;
 
 let instance = null;
-let router = null;
 
 function render(props = {}) {
   const { container } = props;
-  router = microRouter();
 
   instance = new Vue({
-    // router,
+    router,
     // store,
     render: h => h(App),
   }).$mount(container ? container.querySelector('#app') : '#app');
