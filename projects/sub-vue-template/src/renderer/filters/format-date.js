@@ -12,4 +12,4 @@ const format = function (val, format) {
   return moment(val).format(format || 'YYYY-MM-DD HH:mm:ss');
 };
 
-export { toDate, format };
+export { toDate,toTime, format };
