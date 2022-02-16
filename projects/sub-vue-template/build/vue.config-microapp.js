@@ -1,5 +1,5 @@
 const path = require('path')
-const { name } = require('../../package.json')
+const { name } = require('../../../package.json')
 
 function resolve(dir) {
   return path.join(__dirname, dir)
@@ -9,7 +9,7 @@ module.exports = {
   chainWebpack: config => {},
   productionSourceMap: false,
   configureWebpack: {
-    entry: './src/renderer/main-microapp.js',
+    entry: '../src/renderer/main-microapp.js',
     output: {
       library: `${name}-[name]`,
       libraryTarget: 'umd', // 把微应用打包成 umd 库格式

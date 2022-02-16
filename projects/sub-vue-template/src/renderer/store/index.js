@@ -2,8 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 // 手动引入
-import demo from './staticModules/demo'
-import protal from './staticModules/protal'
+import demo from './stores/demo'
+import protal from './stores/protal'
 
 // 动态引入
 const files = require.context('./', true, /(^\.\/module-)([a-zA-Z/]+)index\.js$/)

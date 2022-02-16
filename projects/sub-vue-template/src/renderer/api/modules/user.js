@@ -1,5 +1,5 @@
 // import { get, post, fpost } from '../http.js';
-import { axiosFactory } from '../create-axios';
+// import { axiosFactory } from '../create-axios';
 
 const { get, post, fpost } = axiosFactory();
 // const axiosInstance = function(axios,'default') {

@@ -1,13 +1,11 @@
 <template>
   <div id="app">
-    <div>
-      <router-view></router-view>
-    </div>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from 'vuex';
 
 export default {
   name: 'Home',
@@ -15,7 +13,7 @@ export default {
     AHome: () => import('./views/Home.vue'),
   },
   data() {
-    return {}
+    return {};
   },
   computed: mapState({
     val: state => state.val,
@@ -24,7 +22,7 @@ export default {
   mounted() {
     // this.$store.commit('change', '2')
   },
-}
+};
 </script>
 
 <style lang="scss">

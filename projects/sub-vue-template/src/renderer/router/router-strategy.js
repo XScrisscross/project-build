@@ -26,4 +26,15 @@ export const Strategy = {
     return router;
   },
   // electron-apps routes
+  electron: function (VueRouter, routes) {
+    const router = new VueRouter({
+      routes,
+      mode: 'hash',
+    });
+    router.beforeEach((to, from, next) => {
+      next();
+    });
+    router.afterEach((to, from) => {});
+    return router;
+  },
 };

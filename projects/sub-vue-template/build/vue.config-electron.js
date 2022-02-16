@@ -8,7 +8,7 @@ module.exports = {
   chainWebpack: config => {},
   productionSourceMap: false,
   configureWebpack: {
-    entry: './src/renderer/main-webapp.js',
+    entry: '/src/renderer/main-electron.js',
     resolve: {
       extensions: ['.js', '.vue', '.json', '.ts', '.less'],
       alias: {
@@ -57,6 +57,11 @@ module.exports = {
         // 'remUnit' 设计图尺寸
         plugins: [require('postcss-px2rem')({ remUnit: 192 })],
       },
+    },
+  },
+  pluginOptions: {
+    electronBuilder: {
+      mainProcessFile: './src/main/main.js',
     },
   },
   devServer: {

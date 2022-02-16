@@ -5,15 +5,19 @@ function resolve(dir) {
 }
 
 module.exports = {
-  chainWebpack: config => {},
+  publicPath: '/',
+  outputDir: 'webapp/inner',
+  chainWebpack: config => {
+    config.plugin('html').tap(args => {
+      args[0].title = ''
+      return args
+    })
+  },
   productionSourceMap: false,
   configureWebpack: {
-    entry: './src/renderer/main-electron.js',
+    entry: ['babel-polyfill', '/src/renderer/main-webapp.js'],
     resolve: {
       extensions: ['.js', '.vue', '.json', '.ts', '.less'],
-      alias: {
-        '@': resolve('src/renderer'),
-      },
     },
     // 公共资源合并
     optimization: {
@@ -21,7 +25,7 @@ module.exports = {
         cacheGroups: {
           vendor: {
             chunks: 'all',
-            test: /node_modules/,
+            test: /[\\/]node_modules/,
             name: 'vendor',
             minChunks: 1,
             maxInitialRequests: 5,
@@ -52,16 +56,20 @@ module.exports = {
   },
   css: {
     loaderOptions: {
-      css: {},
-      postcss: {
-        // 'remUnit' 设计图尺寸
-        plugins: [require('postcss-px2rem')({ remUnit: 192 })],
+      less: {
+        lessOptions: {
+          modifyVars: {
+            'primary-color': '#f44336',
+            'link-color': '#f44336',
+            'border-radius-base': '2px',
+          },
+          javascriptEnabled: true,
+        },
       },
-    },
-  },
-  pluginOptions: {
-    electronBuilder: {
-      mainProcessFile: './src/main/main.js',
+      // postcss: {
+      //   // 'remUnit' 设计图尺寸
+      //   plugins: [require('postcss-px2rem')({ remUnit: 192 })],
+      // },
     },
   },
   devServer: {
@@ -75,7 +83,7 @@ module.exports = {
           '^/api': '',
         },
       },
-      '^/mock/': {
+      '^/mock': {
         target: 'http://localhost:3000/',
         changeOrigin: true,
         pathRewrite: {

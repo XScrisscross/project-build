@@ -1,3 +1,8 @@
+/**
+ * @param routes 一级单路由
+ * @note
+ * 自动导入 产生路由 /path
+ */
 export default [
   {
     path: '/sbviewC',
@@ -15,4 +20,4 @@ export default [
       title: '视图D',
     },
   },
-]
+];
