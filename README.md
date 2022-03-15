@@ -39,3 +39,4 @@
 
 - 多页面架构实现，npm-run-all 分 dev 环境启动多个应用，打包多个应用，整合老框架 Vue 多页面
 - sub-vue-zp-template 模板整合
+- 打包进度条插件
