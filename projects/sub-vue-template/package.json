@@ -36,9 +36,12 @@
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "lodash": "^4.17.21",
+    "normalize.css": "^8.0.1",
+    "nprogress": "^0.2.0",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
-    "vuex": "^3.4.0"
+    "vuex": "^3.4.0",
+    "wangeditor": "^4.7.11"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.5",
@@ -75,7 +78,8 @@
     "sass-loader": "^8.0.2",
     "spectron": "15.0.0",
     "vue-cli-plugin-electron-builder": "~2.1.1",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "webpackbar": "^5.0.2"
   },
   "husky": {
     "hooks": {

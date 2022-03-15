@@ -11,7 +11,7 @@ export default [
   [
     {
       path: 'sdviewA',
-      component: () => import(/* webpackChunkName: "sectionD" */ '../../views/sectionB/ViewA.vue'),
+      component: () => import(/* webpackChunkName: "sectionD" */ '../../views/sectionA/ViewA.vue'),
       name: 'sdviewA',
       meta: {
         title: '视图A',
@@ -19,7 +19,7 @@ export default [
     },
     {
       path: 'sdviewB',
-      component: () => import(/* webpackChunkName: "sectionD" */ '../../views/sectionB/ViewB.vue'),
+      component: () => import(/* webpackChunkName: "sectionD" */ '../../views/sectionA/ViewB.vue'),
       name: 'sdviewB',
       meta: {
         title: '视图B',

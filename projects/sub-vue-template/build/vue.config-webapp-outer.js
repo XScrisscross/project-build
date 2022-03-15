@@ -56,16 +56,6 @@ module.exports = {
   },
   css: {
     loaderOptions: {
-      less: {
-        lessOptions: {
-          modifyVars: {
-            'primary-color': '#f44336',
-            'link-color': '#f44336',
-            'border-radius-base': '2px',
-          },
-          javascriptEnabled: true,
-        },
-      },
       // postcss: {
       //   // 'remUnit' 设计图尺寸
       //   plugins: [require('postcss-px2rem')({ remUnit: 192 })],

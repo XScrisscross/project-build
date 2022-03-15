@@ -28,7 +28,4 @@ const fetchApi = (key, params) => {
 
 if (apiMountVue) Vue.prototype.$fetchApi = fetchApi;
 
-const registerApi = function (Vue) {};
-
-// export { apis, fetchApi }
-export default registerApi;
+export { apis, fetchApi };

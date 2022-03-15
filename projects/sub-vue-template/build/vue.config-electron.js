@@ -1,7 +1,9 @@
-const path = require('path')
+const path = require('path');
+const baseConfig = require('./vue.config-base');
+const WebpackBar = require('webpackbar');
 
 function resolve(dir) {
-  return path.join(__dirname, dir)
+  return path.join(__dirname, dir);
 }
 
 module.exports = {
@@ -11,10 +13,9 @@ module.exports = {
     entry: '/src/renderer/main-electron.js',
     resolve: {
       extensions: ['.js', '.vue', '.json', '.ts', '.less'],
-      alias: {
-        '@': resolve('src/renderer'),
-      },
+      alias: { '@': resolve('../src/renderer') },
     },
+    plugins: [new WebpackBar()],
     // 公共资源合并
     optimization: {
       splitChunks: {
@@ -84,4 +85,4 @@ module.exports = {
       },
     },
   },
-}
+};

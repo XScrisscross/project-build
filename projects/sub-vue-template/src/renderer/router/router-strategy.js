@@ -1,3 +1,5 @@
+import NProgress from 'nprogress';
+
 export const Strategy = {
   // web-apps routes
   webapp: function (VueRouter, routes) {
@@ -32,9 +34,12 @@ export const Strategy = {
       mode: 'hash',
     });
     router.beforeEach((to, from, next) => {
+      NProgress.start();
       next();
     });
-    router.afterEach((to, from) => {});
+    router.afterEach((to, from) => {
+      NProgress.done();
+    });
     return router;
   },
 };

@@ -4,9 +4,13 @@ import router from './router';
 import store from './store';
 
 // import './api/index'
+import 'normalize.css';
 
 import 'amfe-flexible';
+
 import './assets/style/index.scss';
+
+import 'nprogress/nprogress.css';
 
 Vue.config.productionTip = false;
 

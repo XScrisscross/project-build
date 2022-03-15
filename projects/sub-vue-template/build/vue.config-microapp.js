@@ -1,8 +1,8 @@
-const path = require('path')
-const { name } = require('../../../package.json')
+const path = require('path');
+const { name } = require('../../../package.json');
 
 function resolve(dir) {
-  return path.join(__dirname, dir)
+  return path.join(__dirname, dir);
 }
 
 module.exports = {
@@ -17,9 +17,7 @@ module.exports = {
     },
     resolve: {
       extensions: ['.js', '.vue', '.json', '.ts', '.less'],
-      alias: {
-        '@': resolve('src/renderer'),
-      },
+      alias: { '@': resolve('../src/renderer') },
     },
     // 公共资源合并
     optimization: {
@@ -88,4 +86,4 @@ module.exports = {
       },
     },
   },
-}
+};

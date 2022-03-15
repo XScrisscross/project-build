@@ -1,21 +1,22 @@
-const path = require('path')
+const path = require('path');
 
 function resolve(dir) {
-  return path.join(__dirname, dir)
+  return path.join(__dirname, dir);
 }
 
 module.exports = {
   chainWebpack: config => {
     config.plugin('html').tap(args => {
-      args[0].title = ''
-      return args
-    })
+      args[0].title = '';
+      return args;
+    });
   },
   productionSourceMap: false,
   configureWebpack: {
     entry: '/src/renderer/main-webapp.js',
     resolve: {
       extensions: ['.js', '.vue', '.json', '.ts', '.less'],
+      alias: { '@': resolve('../src/renderer') },
     },
     // 公共资源合并
     optimization: {
@@ -54,16 +55,6 @@ module.exports = {
   },
   css: {
     loaderOptions: {
-      less: {
-        lessOptions: {
-          modifyVars: {
-            'primary-color': '#f44336',
-            'link-color': '#f44336',
-            'border-radius-base': '2px',
-          },
-          javascriptEnabled: true,
-        },
-      },
       // postcss: {
       //   // 'remUnit' 设计图尺寸
       //   plugins: [require('postcss-px2rem')({ remUnit: 192 })],
@@ -90,4 +81,4 @@ module.exports = {
       },
     },
   },
-}
+};
