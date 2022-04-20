@@ -1,10 +1,12 @@
 import axiosConfig from './request';
-import { isObjectArr, isString } from '../../utils/object-utils';
+import { isObject } from '../../utils/types';
+import { isString } from '../../utils/object-utils';
 
 const isParamsTrue = function () {
   const pathUrl = Array.prototype.shift.call(arguments);
   if (!isString(pathUrl)) throw new Error('api path params wrong!');
-  if (!isObjectArr(arguments)) throw new Error('api obj params wrong!');
+  const params = Array.prototype.shift.call(arguments);
+  if (!isObject(params)) throw new Error('api obj params wrong!');
 };
 
 const service = (function () {
@@ -38,7 +40,7 @@ const service = (function () {
     }
   );
 
-  return service
+  return service;
 })();
 
 // axios
@@ -63,12 +65,12 @@ export const get = function (pathUrl, params) {
 };
 
 // post
-export const post = function (pathUrl, data, params) {
+export const post = function (pathUrl, bodyData, params) {
   isParamsTrue.apply(this, arguments);
 
   return new Promise((resolve, reject) => {
     service
-      .post(pathUrl, { ...params })
+      .post(pathUrl, { ...bodyData })
       .then(res => {
         resolve(res);
       })
@@ -79,12 +81,13 @@ export const post = function (pathUrl, data, params) {
 };
 
 // fpost
-export const fpost = function (pathUrl, formData, data) {
+export const fpost = function (pathUrl, formData, params = {}) {
   isParamsTrue.apply(this, arguments);
+  pathUrl = `${pathUrl}?${qs.stringify(params)}`;
 
   return new Promise((resolve, reject) => {
     service
-      .post(`${pathUrl}?${qs.stringify(data)}`, formData, { headers: { 'Content-Type': 'multipart/form-data' } })
+      .post(pathUrl, formData, { headers: { 'Content-Type': 'multipart/form-data' } })
       .then(res => {
         resolve(res);
       })
