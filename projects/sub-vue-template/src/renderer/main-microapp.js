@@ -8,7 +8,7 @@ import store from './store';
 // import './utils/index';
 
 import 'amfe-flexible';
-import './assets/style/index.scss';
+import './_assets/style/index.scss';
 
 Vue.config.productionTip = false;
 

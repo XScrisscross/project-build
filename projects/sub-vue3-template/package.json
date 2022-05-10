@@ -1,0 +1,67 @@
+{
+  "name": "sub-vue3-template",
+  "version": "0.0.0",
+  "private": true,
+  "description": "",
+  "author": {
+    "name": "XScrisscross",
+    "email": "xscrisscross@outlook.com"
+  },
+  "keywords": [
+    "vue3",
+    "Pinia",
+    "vite"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview --port 5050",
+    "test:unit": "vitest --environment jsdom",
+    "test:e2e": "start-server-and-test preview http://127.0.0.1:5050/ 'cypress open'",
+    "test:e2e:ci": "start-server-and-test preview http://127.0.0.1:5050/ 'cypress run'",
+    "typecheck": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false"
+  },
+  "dependencies": {
+    "pinia": "^2.0.13",
+    "vue": "^3.2.33",
+    "vue-router": "^4.0.14"
+  },
+  "devDependencies": {
+    "@types/jsdom": "^16.2.14",
+    "@types/node": "^16.11.27",
+    "@vitejs/plugin-vue": "^2.3.1",
+    "@vitejs/plugin-vue-jsx": "^1.3.10",
+    "@vue/test-utils": "^2.0.0-rc.20",
+    "@vue/tsconfig": "^0.1.3",
+    "cypress": "^9.5.4",
+    "husky": "^8.0.1",
+    "jsdom": "^19.0.0",
+    "lint-staged": "^12.4.1",
+    "start-server-and-test": "^1.14.0",
+    "typescript": "~4.6.3",
+    "vite": "^2.9.5",
+    "vitest": "^0.9.3",
+    "vue-tsc": "^0.34.7"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,vue,html}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add -n"
+    ],
+    "*.{css,sass,scss}": [
+      "prettier --write",
+      "git add -n"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/XScrisscross/vue-build"
+  }
+}

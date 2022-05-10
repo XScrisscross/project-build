@@ -1,4 +1,6 @@
 export const buildConfig = {
+  // envMode: 'webapp'
+  envMode: process.env.VUE_APP_TEMPLATE_MODE,
   // api是否挂载Window
   apiMountWindow: false,
   // api是否挂载Vue

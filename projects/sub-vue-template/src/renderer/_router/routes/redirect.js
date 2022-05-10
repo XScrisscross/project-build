@@ -6,6 +6,6 @@
 export default [
   {
     path: '/',
-    redirect: '/home/sdviewA',
+    redirect: '/home/sdviewB',
   },
 ];

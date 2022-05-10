@@ -1,6 +1,6 @@
-import { isObject, isObjectArr } from '../utils/object-utils';
-import { error } from '../utils/error-utils';
-import { compose } from '../utils/compose';
+import { isObject, isObjectArr } from '../_utils/object-utils';
+import { error } from '../_utils/error-utils';
+import { compose } from '../_utils/compose';
 
 const createRouter = (function () {
   let files;

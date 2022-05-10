@@ -24,7 +24,7 @@ const resolve = {
   alias: {
     '~actions': path.resolve(__dirname, '../app/actions'),
     '~apis': path.resolve(__dirname, '../app/apis'),
-    '~assets': path.resolve(__dirname, '../app/assets'),
+    '~assets': path.resolve(__dirname, '../app/_assets'),
     '~books': path.resolve(__dirname, '../static/books/index.js'),
     '~contain': path.resolve(__dirname, '../app/cpts/contain'),
     '~uiview': path.resolve(__dirname, '../app/cpts/uiview'),

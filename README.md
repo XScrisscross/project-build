@@ -44,8 +44,9 @@
 #### 2022-03-29
 
 - 集成随时可以迁移的代码合集作为自己的工具库
-- 丰富周边生态库
+- htmlToPdf，html转pdf及屏幕适配解决，promise异步处理
 
 #### 2022-05-09
 
 - 集成Vue3
+- Vue3与Vue2 VsCode 代码检查 Volar 与 Vetur需切换使用 

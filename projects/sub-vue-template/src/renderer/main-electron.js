@@ -8,7 +8,7 @@ import 'normalize.css';
 
 import 'amfe-flexible';
 
-import './assets/style/index.scss';
+import './_assets/style/index.scss';
 
 import 'nprogress/nprogress.css';
 

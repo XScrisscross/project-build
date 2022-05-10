@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import E from '{}';
+// import E from '{}';
 
 export default {
   mixins: [],
@@ -72,33 +72,6 @@ export default {
       }
     },
     sendFile(e) {
-      let uuid2 = Math.ceil(Math.random() * 100000); //递增索引
-      let fileName = e.target.files[0].name;
-      let fileType = e.target.files[0].name.split('.')[1];
-      let fileSize = this.renderSize(e.target.files[0].size);
-      let dataImg = null;
-      if (fileType === 'xlsx' || fileType === 'xls') {
-        dataImg = require('../../assets/message/表格.png');
-      } else if (fileType === 'doc' || fileType === 'docx') {
-        dataImg = require('../../assets/message/文档.png');
-      } else if (fileType === 'pptx' || fileType === 'ppt') {
-        dataImg = require('../../assets/message/ppt.png');
-      } else if (fileType === 'txt') {
-        dataImg = require('../../assets/message/txt.png');
-      } else if (fileType === 'pdf') {
-        dataImg = require('../../assets/message/pdf.png');
-      } else if (fileType === 'rar' || fileType === 'zip') {
-        dataImg = require('../../assets/message/压缩包.png');
-      } else {
-        dataImg = require('../../assets/message/通用.png');
-      }
-
-      this.editor.txt.append(
-        `<div style="max-width: 100%" contenteditable="false" class="uuid-${uuid2}"><div  class="fileBox" style="  width: 236px;   height: 70px; background: #ffffff; border-radius:3px;  border: 1px solid #eeeeee; display: flex; " > <div class="fileBoxExt"style=" width: 40px; height: 40px;  margin:10px; "> <img src=${dataImg} alt="" /> </div> <div class="fileBoxContent" style="width: 146px; display: flex; flex-direction: column; justify-content: center; " ><div class="fileBoxContentEM"style="overflow: hidden; text-overflow: ellipsis;white-space: nowrap;font-weight: 400;color: #000000;line-height: 16px;font-size: 12px; "> ${fileName}</div><div class="fileBoxContentEMsize"style="font-weight: 400; color: #999999; line-height: 18px; font-size: 12px" > ${fileSize}</div></div></div></div><div><span>&nbsp;</span></div> `
-      );
-      this.fileData.push({ key: 'uuid-' + uuid2, data: e.target.files[0] });
-
-      e.target.value = ''; //清空value 可以二次发送同一文件
     },
 
     sendMessage() {
@@ -145,7 +118,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/style/index.scss';
+@import '../../_assets/style/index.scss';
 
 .text {
   text-align: left;

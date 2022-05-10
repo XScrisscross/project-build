@@ -5,7 +5,7 @@
  * @note
  * 自动导入 /文件名(lowercase)/path
  */
-import Layout from '../../layout/BasicLayout.vue';
+import Layout from '../../_layout/basic-layout.vue';
 
 export default [
   [
