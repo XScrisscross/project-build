@@ -3,12 +3,12 @@ import { error } from '../_utils/error-utils';
 import { compose } from '../_utils/compose';
 
 const createRouter = (function () {
-  let files: any;
-  let Routes: any;
-  let VueRouter: any;
-  let Strategy: any;
+  let files;
+  let Routes;
+  let VueRouter;
+  let Strategy;
 
-  const initParams = function (args: any) {
+  const initParams = function (args) {
     const config = Array.prototype.shift.call(args);
     Routes = config.Routes;
     VueRouter = config.VueRouter;
