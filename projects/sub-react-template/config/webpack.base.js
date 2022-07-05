@@ -9,7 +9,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 // entry
-const entry = path.resolve(__dirname, '../app/main')
+const entry = path.resolve(__dirname, '../src/main')
 
 // output
 const output = {
@@ -22,21 +22,21 @@ const output = {
 // resolve
 const resolve = {
   alias: {
-    '~actions': path.resolve(__dirname, '../app/actions'),
-    '~apis': path.resolve(__dirname, '../app/apis'),
-    '~assets': path.resolve(__dirname, '../app/_assets'),
+    '~actions': path.resolve(__dirname, '../src/actions'),
+    '~apis': path.resolve(__dirname, '../src/apis'),
+    '~assets': path.resolve(__dirname, '../src/_assets'),
     '~books': path.resolve(__dirname, '../static/books/index.js'),
-    '~contain': path.resolve(__dirname, '../app/cpts/contain'),
-    '~uiview': path.resolve(__dirname, '../app/cpts/uiview'),
-    '~env': path.resolve(__dirname, '../app/env'),
-    '~reducer': path.resolve(__dirname, '../app/reducer'),
-    '~redux': path.resolve(__dirname, '../app/redux'),
-    '~router': path.resolve(__dirname, '../app/router'),
-    '~utils': path.resolve(__dirname, '../app/utils'),
-    '~views': path.resolve(__dirname, '../app/views'),
+    '~contain': path.resolve(__dirname, '../src/cpts/contain'),
+    '~uiview': path.resolve(__dirname, '../src/cpts/uiview'),
+    '~env': path.resolve(__dirname, '../src/env'),
+    '~reducer': path.resolve(__dirname, '../src/reducer'),
+    '~redux': path.resolve(__dirname, '../src/redux'),
+    '~router': path.resolve(__dirname, '../src/router'),
+    '~utils': path.resolve(__dirname, '../src/utils'),
+    '~views': path.resolve(__dirname, '../src/views'),
   },
   extensions: ['.js', '.json', '.jsx', 'css', 'less', 'scss', 'md', 'MD'],
-  modules: [path.resolve(__dirname, '../app/components'), 'node_modules'], // 优先导入模块
+  modules: [path.resolve(__dirname, '../src/components'), 'node_modules'], // 优先导入模块
 }
 
 // rules
@@ -45,7 +45,7 @@ const rules = {
     {
       test: /\.(js|jsx)$/,
       exclude: /node_modules/,
-      include: [path.resolve(__dirname, '../app')],
+      include: [path.resolve(__dirname, '../src')],
       loader: 'babel-loader',
       options: { presets: ['@babel/preset-env', '@babel/preset-react'] },
     },
