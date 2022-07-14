@@ -1,22 +1,37 @@
-const electronConfig = require('./build/vue.config-electron')
-const microappConfig = require('./build/vue.config-microapp')
-const webappConfig = require('./build/vue.config-webapp')
+const electronConfig = require('./build/vue.config-electron');
+const microappConfig = require('./build/vue.config-microapp');
+const webappConfig = require('./build/vue.config-webapp');
 
-const innerWebappConfig = require('./build/vue.config-webapp-inner')
-const outerWebappConfig = require('./build/vue.config-webapp-outer')
+const webappConfigX = require('./build/vue.config-webapp-webappX');
+const webappConfigY = require('./build/vue.config-webapp-webappY');
 
-let currentConfig = null
-let commonConfig = {}
+const projectMode = process.env.PROJECT_MODE;
 
-if (process.env.VUE_APP_TEMPLATE_MODE === 'electron') currentConfig = electronConfig
-if (process.env.VUE_APP_TEMPLATE_MODE === 'microapp') currentConfig = microappConfig
-if (process.env.VUE_APP_TEMPLATE_MODE === 'webapp') currentConfig = webappConfig
+let currentConfig = null;
+let commonConfig = {};
 
-if (process.env.VUE_APP_TEMPLATE_TYPE === 'inner' && process.env.VUE_APP_TEMPLATE_MODE === 'webapp') currentConfig = innerWebappConfig
-if (process.env.VUE_APP_TEMPLATE_TYPE === 'outer' && process.env.VUE_APP_TEMPLATE_MODE === 'webapp') currentConfig = outerWebappConfig
-
-if (!currentConfig) {
-  throw new Error('checok env file config')
+switch (projectMode) {
+  case 'webapp':
+    currentConfig = webappConfig;
+    break;
+  case 'electron':
+    currentConfig = electronConfig;
+    break;
+  case 'microapp':
+    currentConfig = microappConfig;
+    break;
+  case 'webappX':
+    currentConfig = webappConfigX;
+    break;
+  case 'webappY':
+    currentConfig = webappConfigY;
+    break;
+  default:
+    break;
 }
 
-module.exports = { ...currentConfig, ...commonConfig }
+if (!currentConfig) {
+  throw new Error('checok env file config');
+}
+
+module.exports = { ...currentConfig, ...commonConfig };

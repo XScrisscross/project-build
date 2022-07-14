@@ -1,21 +1,20 @@
 const path = require('path');
-const baseConfig = require('./vue.config-base');
-const WebpackBar = require('webpackbar');
+const baseConfig = require('./vue.config-base').baseConfig;
+const plugins = require('./vue.config-base').plugins;
 
 function resolve(dir) {
   return path.join(__dirname, dir);
 }
 
 module.exports = {
-  chainWebpack: config => {},
-  productionSourceMap: false,
+  ...baseConfig,
   configureWebpack: {
-    entry: '/src/renderer/main-electron.js',
+    entry: ['babel-polyfill', '/build/web-entry/main-electron.js'],
     resolve: {
       extensions: ['.js', '.vue', '.json', '.ts', '.less'],
       alias: { '@': resolve('../src/renderer') },
     },
-    plugins: [new WebpackBar()],
+    plugins: [...plugins],
     // 公共资源合并
     optimization: {
       splitChunks: {
@@ -53,21 +52,19 @@ module.exports = {
   },
   css: {
     loaderOptions: {
-      css: {},
       postcss: {
-        // 'remUnit' 设计图尺寸
-        plugins: [require('postcss-px2rem')({ remUnit: 192 })],
+        plugins: [require('postcss-px2rem')({ remUnit: 192 })], // 'remUnit' 设计图尺寸
       },
     },
   },
   pluginOptions: {
     electronBuilder: {
-      mainProcessFile: './src/main/main.js',
+      mainProcessFile: '../src/main/main.js',
     },
   },
   devServer: {
     host: '0.0.0.0',
-    port: process.env.VUE_APP_TEMPLATE_PORT,
+    port: '4000',
     proxy: {
       '^/api': {
         target: 'http://localhost:3000/',

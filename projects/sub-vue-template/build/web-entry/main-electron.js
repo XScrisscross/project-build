@@ -1,16 +1,14 @@
 import Vue from 'vue';
-import App from './App.vue';
-import router from './router';
-import store from './store';
 
-// import './api/index'
-import 'normalize.css';
+import App from '@/App.vue';
+import router from '@/_router';
+import store from '@/_store';
 
 import 'amfe-flexible';
-
-import './_assets/style/index.scss';
-
 import 'nprogress/nprogress.css';
+
+import '@/_api/index'
+import '@/_assets/style/index.scss';
 
 Vue.config.productionTip = false;
 

@@ -1,31 +1,26 @@
-const path = require('path')
+const path = require('path');
+const baseConfig = require('./vue.config-base').baseConfig;
+const plugins = require('./vue.config-base').plugins;
 
 function resolve(dir) {
-  return path.join(__dirname, dir)
+  return path.join(__dirname, dir);
 }
 
 module.exports = {
-  publicPath: '/',
-  outputDir: 'webapp/outer',
-  chainWebpack: config => {
-    config.plugin('html').tap(args => {
-      args[0].title = ''
-      return args
-    })
-  },
-  productionSourceMap: false,
+  ...baseConfig,
   configureWebpack: {
-    entry: ['babel-polyfill', '/src/renderer/main-webapp.js'],
+    entry: ['babel-polyfill', '/build/web-entry/main-webapp.js'],
     resolve: {
       extensions: ['.js', '.vue', '.json', '.ts', '.less'],
     },
+    plugins: [...plugins],
     // 公共资源合并
     optimization: {
       splitChunks: {
         cacheGroups: {
           vendor: {
             chunks: 'all',
-            test: /node_modules/,
+            test: /[\\/]node_modules/,
             name: 'vendor',
             minChunks: 1,
             maxInitialRequests: 5,
@@ -56,15 +51,14 @@ module.exports = {
   },
   css: {
     loaderOptions: {
-      // postcss: {
-      //   // 'remUnit' 设计图尺寸
-      //   plugins: [require('postcss-px2rem')({ remUnit: 192 })],
-      // },
+      postcss: {
+        plugins: [require('postcss-px2rem')({ remUnit: 192 })], // 'remUnit' 设计图尺寸
+      },
     },
   },
   devServer: {
     host: '0.0.0.0',
-    port: process.env.VUE_APP_TEMPLATE_PORT,
+    port: '3001',
     proxy: {
       '^/api': {
         target: 'http://localhost:3000/',
@@ -82,4 +76,4 @@ module.exports = {
       },
     },
   },
-}
+};

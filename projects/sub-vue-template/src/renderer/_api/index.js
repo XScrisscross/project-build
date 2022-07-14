@@ -1,8 +1,8 @@
 import Vue from 'vue';
-import { buildConfig } from '../_config/env-config.js';
+import config from '../env-config';
 
-const { apiMountWindow, apiMountVue } = buildConfig;
 const files = require.context('./', true, /(^\.\/modules)([a-zA-Z/]+)\.js$/);
+const { apiMountVue, apiMountWindow } = config;
 
 if (apiMountVue) Vue.prototype.$apis = {};
 

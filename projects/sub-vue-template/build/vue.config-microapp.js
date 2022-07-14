@@ -1,15 +1,16 @@
 const path = require('path');
 const { name } = require('../../../package.json');
+const baseConfig = require('./vue.config-base').baseConfig;
+const plugins = require('./vue.config-base').plugins;
 
 function resolve(dir) {
   return path.join(__dirname, dir);
 }
 
 module.exports = {
-  chainWebpack: config => {},
-  productionSourceMap: false,
+  ...baseConfig,
   configureWebpack: {
-    entry: '../src/renderer/main-microapp.js',
+    entry: ['babel-polyfill', '/build/web-entry/main-microapp.js'],
     output: {
       library: `${name}-[name]`,
       libraryTarget: 'umd', // 把微应用打包成 umd 库格式
@@ -19,6 +20,7 @@ module.exports = {
       extensions: ['.js', '.vue', '.json', '.ts', '.less'],
       alias: { '@': resolve('../src/renderer') },
     },
+    plugins: [...plugins],
     // 公共资源合并
     optimization: {
       splitChunks: {
@@ -56,16 +58,14 @@ module.exports = {
   },
   css: {
     loaderOptions: {
-      css: {},
       postcss: {
-        // 'remUnit' 设计图尺寸
-        plugins: [require('postcss-px2rem')({ remUnit: 192 })],
+        plugins: [require('postcss-px2rem')({ remUnit: 192 })], // 'remUnit' 设计图尺寸
       },
     },
   },
   devServer: {
     host: '0.0.0.0',
-    port: process.env.VUE_APP_TEMPLATE_PORT,
+    port: '5000',
     headers: {
       'Access-Control-Allow-Origin': '*',
     },
