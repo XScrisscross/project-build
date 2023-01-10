@@ -12,6 +12,7 @@ module.exports = {
     entry: ['babel-polyfill', '/build/web-entry/main-webapp.js'],
     resolve: {
       extensions: ['.js', '.vue', '.json', '.ts', '.less'],
+      alias: { '@': resolve('../src/renderer') },
     },
     plugins: [...plugins],
     // 公共资源合并
@@ -46,13 +47,6 @@ module.exports = {
             name: 'manifest',
           },
         },
-      },
-    },
-  },
-  css: {
-    loaderOptions: {
-      postcss: {
-        plugins: [require('postcss-px2rem')({ remUnit: 192 })], // 'remUnit' 设计图尺寸
       },
     },
   },

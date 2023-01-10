@@ -14,26 +14,25 @@
     "vue-cli"
   ],
   "scripts": {
+    // 常规应用设置
     "serve:devp": "cross-env PROJECT_MODE=webapp vue-cli-service serve --mode devp",
     "build-all": "npm-run-all --serial build:*",
     "build:pack_test": "cross-env PROJECT_MODE=webapp vue-cli-service build --mode pack_test",
     "build:pack_prod": "cross-env PROJECT_MODE=webapp vue-cli-service build --mode pack_prod",
+    // electron客户端设置
     "electron:devp": "cross-env PROJECT_MODE=electron vue-cli-service electron:serve --mode devp",
     "electron-build:pack_test": "cross-env PROJECT_MODE=electron vue-cli-service electron:build --mode pack_test",
     "electron-build:pack_prod": "cross-env PROJECT_MODE=electron vue-cli-service electron:build --mode pack_prod",
-    "micro-serve:devp": "cross-env PROJECT_MODE=micro vue-cli-service serve --mode devp",
-    "micro-build:pack_prod": "cross-env PROJECT_MODE=micro vue-cli-service build --mode pack_prod",
-    "micro-build:pack_test": "cross-env PROJECT_MODE=micro vue-cli-service build --mode pack_test",
-    "multi-serve": "npm-run-all --parallel multi-serve:*",
-    "multi-serve:webappX": "PROJECT_MODE=webappX vue-cli-service serve --mode devp_x",
-    "multi-serve:webappY": "PROJECT_MODE=webappY vue-cli-service serve --mode devp_y",
-    "multi-build-all": "npm-run-all --serial multi-build:*",
-    "multi-build:pack_test_x": "PROJECT_MODE=webappX vue-cli-service build --mode pack_test_x",
-    "multi-build:pack_test_y": "PROJECT_MODE=webappY vue-cli-service build --mode pack_test_y",
-    "multi-build:pack_prod_x": "PROJECT_MODE=webappX vue-cli-service build --mode pack_prod_x",
-    "multi-build:pack_prod_y": "PROJECT_MODE=webappY vue-cli-service build --mode pack_prod_y",
     "postinstall": "electron-builder install-app-deps",
     "postuninstall": "electron-builder install-app-deps",
+    // 微应用-子应用设置
+    "micro-serve:devp": "cross-env PROJECT_MODE=microapp vue-cli-service serve --mode devp",
+    "micro-build:pack_prod": "cross-env PROJECT_MODE=microapp vue-cli-service build --mode pack_prod",
+    "micro-build:pack_test": "cross-env PROJECT_MODE=microapp vue-cli-service build --mode pack_test",
+    // 多应用设置
+    "multi-serve": "npm-run-all --parallel multi-serve:*",
+    "multi-serve:webappX": "cross-env PROJECT_MODE=webappX vue-cli-service serve --mode devp",
+    "multi-serve:webappY": "cross-env PROJECT_MODE=webappY vue-cli-service serve --mode devp",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },
@@ -118,6 +117,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/XScrisscross/vue-build"
+    "url": "https://github.com/XScrisscross/project-build"
   }
 }

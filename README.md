@@ -62,3 +62,4 @@
 
 - Vue2 template 打包配置更新，多环境启动，开发测试生产打包
 - Vue2 template 减少配置更改，提供多个启动入口
+- 子目录显隐：vscode配置"files.exclude"

@@ -1,10 +1,3 @@
-const electronConfig = require('./build/vue.config-electron');
-const microappConfig = require('./build/vue.config-microapp');
-const webappConfig = require('./build/vue.config-webapp');
-
-const webappConfigX = require('./build/vue.config-webapp-webappX');
-const webappConfigY = require('./build/vue.config-webapp-webappY');
-
 const projectMode = process.env.PROJECT_MODE;
 
 let currentConfig = null;
@@ -12,19 +5,19 @@ let commonConfig = {};
 
 switch (projectMode) {
   case 'webapp':
-    currentConfig = webappConfig;
+    currentConfig = require('./build/vue.config-webapp');
     break;
   case 'electron':
-    currentConfig = electronConfig;
+    currentConfig = require('./build/vue.config-electron');
     break;
   case 'microapp':
-    currentConfig = microappConfig;
+    currentConfig = require('./build/vue.config-microapp');
     break;
   case 'webappX':
-    currentConfig = webappConfigX;
+    currentConfig = require('./build/vue.config-webapp-webappX');
     break;
   case 'webappY':
-    currentConfig = webappConfigY;
+    currentConfig = require('./build/vue.config-webapp-webappY');
     break;
   default:
     break;
