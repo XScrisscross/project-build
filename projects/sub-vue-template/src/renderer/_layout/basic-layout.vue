@@ -1,7 +1,6 @@
 <template>
   <div calss="basic-layout">
-    <keep-alive>
-      <router-view></router-view>
-    </keep-alive>
+    <div>basic-layout</div>
+    <router-view></router-view>
   </div>
 </template>

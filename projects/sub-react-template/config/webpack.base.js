@@ -9,12 +9,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 // entry
-const entry = path.resolve(__dirname, '../src/main')
+const entry = path.resolve(__dirname, '../src/index')
 
 // output
 const output = {
   path: path.resolve(__dirname, '../webapp'), //打包文件的输出路径
-  publicPath: '',
+  // publicPath: '/',  分路由分离部署
+  publicPath: './',
   filename: 'js/[name].[hash:8].bundle.js',
   chunkFilename: 'js/[name].[hash:8].bundle.js',
 }

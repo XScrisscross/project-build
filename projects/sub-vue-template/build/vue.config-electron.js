@@ -59,7 +59,7 @@ module.exports = {
   },
   pluginOptions: {
     electronBuilder: {
-      mainProcessFile: '../src/main/main.js',
+      mainProcessFile: resolve('../src/main/main.js'),
     },
   },
   devServer: {

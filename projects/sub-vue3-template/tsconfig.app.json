@@ -5,7 +5,8 @@
     "shims-vue.d.ts",
     "src/**/*",
     "src/**/*.vue",
-    "src/**/*.tsx"
+    "src/**/*.tsx",
+    "opentype.js"
   ],
   "exclude": [
     "src/**/__tests__/*"

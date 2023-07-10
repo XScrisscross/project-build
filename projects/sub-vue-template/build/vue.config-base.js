@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const WebpackBar = require('webpackbar');
 
 module.exports = {
@@ -14,5 +15,13 @@ module.exports = {
       },
     },
   },
-  plugins: [new WebpackBar()],
+  plugins: [
+    new WebpackBar(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        PROJECT_MODE: JSON.stringify(process.env.PROJECT_MODE),
+        PROJECT_PORT: JSON.stringify(process.env.PROJECT_PORT),
+      },
+    }),
+  ],
 };

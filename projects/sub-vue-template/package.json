@@ -14,22 +14,18 @@
     "vue-cli"
   ],
   "scripts": {
-    // 常规应用设置
     "serve:devp": "cross-env PROJECT_MODE=webapp vue-cli-service serve --mode devp",
     "build-all": "npm-run-all --serial build:*",
     "build:pack_test": "cross-env PROJECT_MODE=webapp vue-cli-service build --mode pack_test",
     "build:pack_prod": "cross-env PROJECT_MODE=webapp vue-cli-service build --mode pack_prod",
-    // electron客户端设置
     "electron:devp": "cross-env PROJECT_MODE=electron vue-cli-service electron:serve --mode devp",
     "electron-build:pack_test": "cross-env PROJECT_MODE=electron vue-cli-service electron:build --mode pack_test",
     "electron-build:pack_prod": "cross-env PROJECT_MODE=electron vue-cli-service electron:build --mode pack_prod",
     "postinstall": "electron-builder install-app-deps",
     "postuninstall": "electron-builder install-app-deps",
-    // 微应用-子应用设置
-    "micro-serve:devp": "cross-env PROJECT_MODE=microapp vue-cli-service serve --mode devp",
-    "micro-build:pack_prod": "cross-env PROJECT_MODE=microapp vue-cli-service build --mode pack_prod",
-    "micro-build:pack_test": "cross-env PROJECT_MODE=microapp vue-cli-service build --mode pack_test",
-    // 多应用设置
+    "micro-serve:devp": "cross-env PROJECT_MODE=microapp PROJECT_PORT=5000 vue-cli-service serve --mode devp",
+    "micro-build:pack_prod": "cross-env PROJECT_MODE=microapp PROJECT_PORT=5000 vue-cli-service build --mode pack_prod",
+    "micro-build:pack_test": "cross-env PROJECT_MODE=microapp PROJECT_PORT=5000 vue-cli-service build --mode pack_test",
     "multi-serve": "npm-run-all --parallel multi-serve:*",
     "multi-serve:webappX": "cross-env PROJECT_MODE=webappX vue-cli-service serve --mode devp",
     "multi-serve:webappY": "cross-env PROJECT_MODE=webappY vue-cli-service serve --mode devp",
@@ -37,6 +33,7 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "@splinetool/runtime": "^0.9.302",
     "amfe-flexible": "^2.2.1",
     "ant-design-vue": "^1.7.5",
     "axios": "^0.21.1",

@@ -7,7 +7,6 @@ import store from '@/_store';
 import 'amfe-flexible';
 import 'nprogress/nprogress.css';
 
-import '@/_api/index'
 import '@/_assets/style/index.scss';
 
 Vue.config.productionTip = false;

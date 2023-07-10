@@ -8,9 +8,12 @@ export const Strategy = {
       mode: 'hash',
     });
     router.beforeEach((to, from, next) => {
+      NProgress.start();
       next();
     });
-    router.afterEach((to, from) => {});
+    router.afterEach((to, from) => {
+      NProgress.done();
+    });
     return router;
   },
   // micro-apps routes
@@ -22,9 +25,12 @@ export const Strategy = {
       mode: 'history',
     });
     router.beforeEach((to, from, next) => {
+      NProgress.start();
       next();
     });
-    router.afterEach((to, from) => {});
+    router.afterEach((to, from) => {
+      NProgress.done();
+    });
     return router;
   },
   // electron-apps routes

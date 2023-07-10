@@ -1,9 +1,9 @@
 // axios 全局默认配置
 import qs from 'qs';
 import axios from 'axios';
-import config from '../../env-config';
+import config from '@/env-config';
 
-axios.defaults.withCredentials = true;
+axios.defaults.withCredentials = true; // 前后端分离使用
 axios.defaults.baseURL = config.baseURL;
 axios.defaults.timeout = 60000;
 

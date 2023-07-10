@@ -20,7 +20,7 @@ module.exports = {
     },
     publicPath: '/',
     hot: true,
-    port: 3000,
+    port: 6000,
     open: false,
     compress: true,
     historyApiFallback: true,
