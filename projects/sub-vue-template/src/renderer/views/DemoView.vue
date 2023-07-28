@@ -49,26 +49,6 @@ export default {
   },
 
   // methods: {
-  //   // 360评估结果
-  //   getAssessresult() {
-  //     getAction("/ceo/assessResult", {
-  //       type: this.barParams.type,
-  //       year: this.barParams.year,
-  //       deptcode: this.barParams.depnum,
-  //     }).then((res) => {
-  //       console.log(res, "360评估结果")
-  //       if (res.year.length == 0) {
-  //         this.echartsDatasAEmpty = true;
-  //       } else {
-  //         this.echartsDatasAEmpty = false;
-  //         try {
-  //           this.echartsDatasA = getEchartsDatasFunc.echartsDatasA({ ...res });
-  //         } catch (error) {
-  //           this.$message.error(error);
-  //         }
-  //       }
-  //     });
-  //   },
   // },
 
   // created() {
