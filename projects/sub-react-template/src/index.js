@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // mount-window
-import '~apis';
+import '@/apis';
 import '~utils';
 import '~env';
 

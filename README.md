@@ -9,6 +9,7 @@
 - npm config set electron_mirror https://mirrors.huaweicloud.com/electron/
 
 ## 环境
+- Nodejs 14
 - npm i
 
 ## 启动
