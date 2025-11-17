@@ -9,6 +9,7 @@ node_modules
 # Log files
 npm-debug.log*
 pnpm-debug.log*
+package-lock.json.log*
 
 # Editor directories and files
 .idea
