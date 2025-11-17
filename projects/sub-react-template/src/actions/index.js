@@ -1,3 +1,4 @@
+import { compose } from '../utils/compose'
 const files = require.context('./', true, /(^\.\/types)([a-zA-Z\/\_]+)\.js$/)
 
 // actions 指令集命名不可重复
@@ -33,4 +34,4 @@ const creatActionFn = (actions = {}, actionsFn = {}) => {
 
 // actionsMap:key列表
 // actionsCreater:key-action列表
-export const { actionsMap, actionsCreater } = Utils_Array.compose(initActions, creatActionFn)(files)
+export const { actionsMap, actionsCreater } = compose(initActions, creatActionFn)(files)

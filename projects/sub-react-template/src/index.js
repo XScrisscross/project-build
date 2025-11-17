@@ -7,18 +7,17 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // mount-window
-import '@/apis';
-import '~utils';
-import '~env';
+import './apis/index.js';
+import './env/index.js';
 
 // main
-import App from '~views';
-import store from '~redux';
+import App from './views/index.jsx';
+import store from './redux/index.js';
 
 // gloable-css
 import 'normalize.css/normalize.css';
 import 'antd/dist/antd.less';
-import '~assets/css/app.scss';
+import './assets/css/app.scss';
 
 function RootApp() {
   return (

@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux'
+import { compose } from '../utils/compose'
 
 const files = require.context('./', true, /(^\.\/reducers)([a-zA-Z\/\_]+)\.js$/)
 
@@ -15,4 +16,4 @@ const createReducer = (initReducersMap = [], reducers = {}) => {
   return reducers
 }
 
-export default Utils_Array.compose(initReducersMap, createReducer, combineReducers)(files)
+export default compose(initReducersMap, createReducer, combineReducers)(files)

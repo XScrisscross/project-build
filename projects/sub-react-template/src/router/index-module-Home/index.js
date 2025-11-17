@@ -2,6 +2,6 @@
 export default [
   {
     name: 'home',
-    component: () => import('~views/home/Home'),
+    component: () => import('../../views/home/Home'),
   },
 ]

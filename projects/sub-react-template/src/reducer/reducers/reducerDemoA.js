@@ -1,4 +1,4 @@
-import { actionsMap, actionsCreater } from '~actions'
+import { actionsMap, actionsCreater } from '../../actions/index.js'
 
 // types 中有aciotn,reducer,key
 const { getListDemoA } = actionsMap

@@ -2,7 +2,7 @@ import React from 'react'
 import { Modal, Input, Form, Select } from 'antd'
 import MDEditor from '@uiw/react-md-editor'
 import { saveAs } from 'file-saver'
-import config from '~env/config'
+import config from '../../env/config'
 
 import './BookEdit.scss'
 

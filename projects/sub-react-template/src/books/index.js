@@ -1,5 +1,6 @@
-import search from '../../README.MD'
-import config from '~env/config'
+import search from './README.MD'
+import config from '../env/config'
+import { compose } from '../utils/compose'
 
 const typeRelation = config.blogType.reduce((res, k) => {
   return { ...res, [k.type]: k.name }
@@ -31,4 +32,4 @@ const fetchFilesInfo = (files, filesInfo = []) => {
   return filesInfo
 }
 
-export default Utils_Array.compose(Utils_Array.sortByFiled, Utils_Array.addActiveFirst)(fetchFilesInfo(files), 'chapterId')
+export default compose(Utils_Array.sortByFiled, Utils_Array.addActiveFirst)(fetchFilesInfo(files), 'chapterId')

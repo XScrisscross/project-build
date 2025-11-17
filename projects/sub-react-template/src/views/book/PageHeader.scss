@@ -1,11 +1,11 @@
-@import '~assets/css/book/book.scss';
+@import '../../assets/css/book/book.scss';
 
 .page-header-wraper {
   display: flex;
   height: 80px;
   font-size: 16px;
   padding: 50px 20px 0;
-  background-image: url('~assets/img/bg_top.gif');
+  background-image: url('../../assets/img/bg_top.gif');
   background-repeat: repeat-x;
   background-size: auto;
 

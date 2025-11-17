@@ -1,11 +1,11 @@
-@import '~assets/css/book/book.scss';
+@import '../../assets/css/book/book.scss';
 
 .book-wraper {
   display: flex;
   min-height: 100%;
   width: 100%;
   padding: 25px;
-  background-image: url('~assets/img/bg_body.gif');
+  background-image: url('../../assets/img/bg_body.gif');
   background-size: auto;
 
   .book-content-wraper {

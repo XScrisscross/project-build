@@ -2,6 +2,6 @@
 export default [
   {
     name: 'file',
-    component: () => import('~views/file/File'),
+    component: () => import('../../views/file/File'),
   },
 ]

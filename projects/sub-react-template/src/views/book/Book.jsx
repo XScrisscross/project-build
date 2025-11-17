@@ -1,5 +1,5 @@
 import React from 'react'
-import booksInfo from '~books'
+import booksInfo from '../../books/index.js'
 
 import PageHeader from './PageHeader'
 import PageMain from './PageMain'

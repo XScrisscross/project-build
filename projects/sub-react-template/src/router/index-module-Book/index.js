@@ -2,6 +2,6 @@
 export default [
   {
     name: 'book',
-    component: () => import('~views/book/Book'),
+    component: () => import('../../views/book/Book'),
   },
 ]

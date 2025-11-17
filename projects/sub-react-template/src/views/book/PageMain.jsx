@@ -1,6 +1,6 @@
 import React from 'react'
 import { MDXProvider } from '@mdx-js/react'
-import Code from '~contain/CodeBlockHighLight'
+import Code from '../../cpts/contain/CodeBlockHighLight'
 
 import './PageMain.scss'
 export default class PageMain extends React.Component {

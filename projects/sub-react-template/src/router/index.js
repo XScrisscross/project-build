@@ -2,9 +2,10 @@ import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import loadable from '@loadable/component'
 import { Spin } from 'antd'
-import WithRouter from '~contain/WithRouter'
-import RoutingGuard from '~contain/RoutingGuard'
-import AsyncComponent from '~contain/AsyncComponent'
+import { compose } from '../utils/compose'
+import WithRouter from '../cpts/contain/WithRouter'
+import RoutingGuard from '../cpts/contain/RoutingGuard'
+import AsyncComponent from '../cpts/contain/AsyncComponent'
 
 const files = require.context('./', true, /(^\.\/index\-module\-)([a-zA-Z\/]+)\.js$/)
 
@@ -35,7 +36,7 @@ export default ((files) => {
 
     // 懒加载
     loadWraper (component) {
-      return Utils_Array.compose(AsyncComponent, WithRouter, RoutingGuard)(component)
+      return compose(AsyncComponent, WithRouter, RoutingGuard)(component)
       // return loadable(comp, {
       //   fallback: <Spin tip="Loading..."> </Spin>,
       // })

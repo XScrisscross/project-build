@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from 'react'
 
-import '~assets/css/anime/loading.scss'
+import '../../assets/css/anime/loading.scss'
 
 export default (importFunc) => {
   const Component = lazy(importFunc)
